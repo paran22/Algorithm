@@ -9,9 +9,5 @@ let morse = [
 ]
 
 func solution(_ letter:String) -> String {
-    var answer = ""
-    for i in letter.split(separator: " ") {
-        answer += morse[String(i)]!
-    }
-    return answer
+    return letter.split(separator: " ").reduce("", { $0 + morse[String($1)]! } )
 }
