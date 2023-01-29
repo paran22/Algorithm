@@ -2,10 +2,9 @@ import Foundation
 
 func solution(_ n:Int) -> Int {
     let piecesOfPizza = 6
-    for i in 1...100 {
-        if piecesOfPizza * i % n == 0 {
-            return i
-        }
+    var answer = 1
+    while answer * piecesOfPizza % n != 0 {
+        answer += 1
     }
-    return 0
+    return answer
 }
