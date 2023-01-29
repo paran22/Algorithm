@@ -1,5 +1,5 @@
 import Foundation
 
 func solution(_ order:Int) -> Int {
-    return Array(String(order)).filter( { ["3", "6", "9"].contains($0) } ).count
+    return String(order).filter( { "369".contains($0) } ).count
 }
