@@ -1,13 +1,5 @@
 import Foundation
 
 func solution(_ n_str:String) -> String {
-    var answer = n_str
-    for n in n_str {
-        if n == "0" {
-            answer.remove(at: answer.startIndex)
-            continue
-        }
-        return answer
-    }
-    return answer
+    return String(n_str.suffix(from: n_str.firstIndex { $0 != "0"}! ))
 }
