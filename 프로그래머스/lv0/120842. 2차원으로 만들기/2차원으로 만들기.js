@@ -1,13 +1,7 @@
 function solution(num_list, n) {
     const answer = [];
-    let array = [];
-    for (index in num_list) {
-        array.push(num_list[index]);
-        console.log(array)
-        if (index % n === n - 1) {
-            answer.push(array);
-            array = [];
-        }
+    while (num_list.length) {
+        answer.push(num_list.splice(0, n));
     }
     return answer;
 }
