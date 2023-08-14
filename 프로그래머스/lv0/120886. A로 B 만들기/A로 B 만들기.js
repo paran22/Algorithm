@@ -1,8 +1,3 @@
 function solution(before, after) {
-    const beforeArr = before.split('').sort();
-    const afterArr = after.split('').sort();
-    for (i in beforeArr) {
-        if (beforeArr[i] !== afterArr[i]) return 0;
-    }
-    return 1;
+    return before.split('').sort().join('') === after.split('').sort().join('') ? 1 : 0;
 }
