@@ -2,7 +2,7 @@ function solution(my_string) {
     let answer = 0;
     let temp = '';
     for (str of my_string) {
-        if (Number(str) > -1) {
+        if (!isNaN(Number(str))) {
             temp += str;
             continue;
         }
