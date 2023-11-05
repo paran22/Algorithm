@@ -1,12 +1,8 @@
 function solution(numer1, denom1, numer2, denom2) {
-    let denom = lcm(denom1, denom2);
-    let numer = (denom / denom1 * numer1) + (denom / denom2 * numer2);
+    let denom = denom1 * denom2;
+    let numer = denom1 * numer2 + denom2 * numer1;
     const num = gcd(denom, numer);
-    if (num > 1) {
-        numer /= num;
-        denom /= num;
-    }
-    return [numer, denom];
+    return [numer / num, denom / num];
 }
 
 function lcm(a, b) {
