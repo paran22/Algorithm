@@ -1,7 +1,8 @@
 function solution(t, p) {
-    let array = [];
+    let answer = 0;
     for (let i = 0; i < t.length - p.length + 1; i++) {
-        array.push(t.slice(i, i + p.length));
+        const word = t.slice(i, i + p.length);
+        if (Number(word) <= Number(p)) answer += 1;
     }
-    return array.filter(str => Number(str) <= Number(p)).length;
+    return answer;
 }
