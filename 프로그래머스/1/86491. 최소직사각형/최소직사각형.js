@@ -1,8 +1,8 @@
 function solution(sizes) {
-    const sortedSizes = sizes.map(size => size.sort((a, b) => b - a));
     let max1 = 0;
     let max2 = 0;
-    for (size of sortedSizes) {
+    for (size of sizes) {
+        size.sort((a, b) => b - a);
         max1 = Math.max(max1, size[0]);
         max2 = Math.max(max2, size[1]);
     }
