@@ -1,13 +1,8 @@
 def solution(s):
-    answer = ""
-    is_first_word = False
-    for word in s:
-        if word == " ":
-            answer += " "
-            is_first_word = False
-        elif not is_first_word:
-            answer += word.upper()
-            is_first_word = True
+    answer = ''
+    for i in s.lower().split(' '):
+        if answer == '':
+            answer += i.capitalize()
         else:
-            answer += word.lower()
+            answer += ' '+i.capitalize()
     return answer
