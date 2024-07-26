@@ -10,20 +10,19 @@ records = {}
 
 for _ in range(N):
     record = sys.stdin.readline().strip().split()
-    records[record[1]] = "".join(record[2:5])
+    record_sound = "".join(record[2:5])
+    record_title = record[1]
+    if record_sound in records:
+        records[record_sound].append(record_title)
+    else:
+        records[record_sound] = [record_title]
 
 for _ in range(M):
-    count = 0
     sound = "".join(sys.stdin.readline().strip().split())
-    title = ""
-    for name, record in records.items():
-        if record == sound:
-            count += 1
-            title = name
-
-    if count == 0:
+    titles = records.get(sound, [])
+    if len(titles) == 0:
         print("!")
-    elif count == 1:
-        print(title)
+    elif len(titles) == 1:
+        print(titles[0])
     else:
         print("?")
