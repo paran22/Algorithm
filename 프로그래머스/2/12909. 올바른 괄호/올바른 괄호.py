@@ -1,10 +1,15 @@
 def solution(s):
-    stack = []
+    # ")"로 시작하면 올바른 괄호가 아니다.
+    if s[0] == ")":
+        return False
+
+    pare = 0
     for char in s:
         if char == "(":
-            stack.append(char)
-        elif char == ")":
-            if not stack:
+            pare += 1
+        else:
+            if pare == 0:
                 return False
-            stack.pop()
-    return len(stack) == 0
+            pare -= 1
+            
+    return pare == 0
