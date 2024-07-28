@@ -9,14 +9,17 @@ for i in range(T):
     S, B = map(int, sys.stdin.readline().split())
     S_soldiers = sorted(list(map(int, sys.stdin.readline().split())))
     B_soldiers = sorted(list(map(int, sys.stdin.readline().split())))
-    while len(S_soldiers) != 0 and len(B_soldiers) != 0:
-        if S_soldiers[0] < B_soldiers[0]:
-            del S_soldiers[0]
+    
+    s_index, b_index = 0, 0  # 인덱스를 사용하여 리스트 순회
+    while s_index < len(S_soldiers) and b_index < len(B_soldiers):
+        if S_soldiers[s_index] < B_soldiers[b_index]:
+            s_index += 1
         else:
-            del B_soldiers[0]
-    if len(S_soldiers) > len(B_soldiers):
+            b_index += 1
+    
+    if s_index < len(S_soldiers):
         print("S")
-    elif len(S_soldiers) < len(B_soldiers):
+    elif b_index < len(B_soldiers):
         print("B")
     else:
         print("C")
