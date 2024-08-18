@@ -1,11 +1,9 @@
 def solution(wallpaper): 
-    min_x, min_y, max_x, max_y = 51, 51, 0, 0
+    x, y = [], []
     for i, row in enumerate(wallpaper):
         for j, item in enumerate(row):
             if item == '#':
-                min_x = min(min_x, i)
-                min_y = min(min_y, j)
-                max_x = max(max_x, i + 1)
-                max_y = max(max_y, j + 1)
+                x.append(i)
+                y.append(j)
             
-    return [min_x, min_y, max_x, max_y]
+    return [min(x), min(y), max(x) + 1, max(y) + 1]
