@@ -1,12 +1,15 @@
-k = int(input())
-arr = []
-for i in range(k):
-    n = int(input())
-    if n != 0:
-        # 추가
-        arr.append(n)
-    else:
-        # 삭제
-        arr.pop()
+import sys
+input = sys.stdin.readline
 
-print(sum(arr))
+K = int(input())
+stack = []
+
+for i in range(K):
+    n = int(input())
+    if n == 0 and stack:
+        stack.pop()
+    else:
+        stack.append(n)
+
+
+print(sum(stack))
